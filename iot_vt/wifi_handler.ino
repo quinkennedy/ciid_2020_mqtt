@@ -52,7 +52,7 @@ void reconnect()
     {
       Serial.println("connected");
       // ... and resubscribe
-      client.subscribe("ciid/iot/button");
+      client.subscribe(mqttTopic);
     } else 
     {
       Serial.print("failed, rc=");

@@ -1,6 +1,13 @@
+const mqttBroker = "broker.hivemq.com";
+const mqttTopic = "ciid/iot/button";
+
 let button;
 
-let client = new Paho.Client("broker.hivemq.com", Number(8000), "ciid_2020_mqtt_p5_pubsub");
+//https://gist.github.com/6174/6062387
+var name = Math.random().toString(36).substring(2, 15);
+name = "ciid_2020_mqtt_p5_pubsub_"+name;
+
+let client = new Paho.Client(mqttBroker, Number(8000), name);
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
 // connect the client
@@ -17,13 +24,13 @@ function setup() {
 
 function pressed() {
 	var message = new Paho.Message("down");
-	message.destinationName = "ciid/iot/button";
+	message.destinationName = mqttTopic;
 	client.send(message);
 }
 
 function released() {
 	var message = new Paho.Message("up");
-	message.destinationName = "ciid/iot/button";
+	message.destinationName = mqttTopic;
 	client.send(message);
 }
 
@@ -31,7 +38,7 @@ function released() {
 function onConnect() {
   // Once a connection has been made, make a subscription and send a message.
   console.log("[onConnect]");
-  client.subscribe("ciid/iot/button");
+  client.subscribe(mqttTopic);
 }
 
 // called when the client loses its connection

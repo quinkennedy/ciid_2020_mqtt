@@ -6,6 +6,7 @@ const char* ssid = "WiFi Name"; //Enter SSID
 const char* password = "WiFi Password"; //Enter Password
 const char* mqttServer = "broker.hivemq.com"; //Enter server adress
 const uint16_t mqttPort = 1883; // Enter server port
+const char* mqttTopic = "ciid/iot/button";
 #define BUTTON_PIN 21
 
 WiFiClient wifi;
@@ -43,9 +44,9 @@ void loop() {
   button.update();
   if (button.fell()){
     digitalWrite(LED_BUILTIN, HIGH);
-    client.publish("ciid/iot/button", "down");
+    client.publish(mqttTopic, "down");
   } else if (button.rose()){
     digitalWrite(LED_BUILTIN, LOW);
-    client.publish("ciid/iot/button", "up");
+    client.publish(mqttTopic, "up");
   }
 }

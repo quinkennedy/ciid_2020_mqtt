@@ -5,6 +5,7 @@ const char* ssid = "WiFi Name"; //Enter SSID
 const char* password = "WiFi Password"; //Enter Password
 const char* mqttServer = "broker.hivemq.com"; //Enter server adress
 const uint16_t mqttPort = 1883; // Enter server port
+const char* mqttTopic = "ciid/iot/button";
 #define VT_PIN 2
 
 WiFiClient wifi;
