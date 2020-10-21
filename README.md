@@ -2,6 +2,8 @@
 
 This demo is built around the [Arduino Nano 33 IoT][33]
 
+You can access the GitHub-hosted p5.js demo [here][p5demo]
+
 ## Overview
 
 **Input**: One Arduino runs the _iot_button_ sketch and has a push-button wired up.
@@ -48,3 +50,4 @@ You will need to update the **ssid** and **password** variables at the top of th
 [button]: iot_button/iot_button.jpg
 [vt]: iot_vt/iot_vt.jpg
 [box]: http://workswithweb.com/mqttbox.html
+[p5demo]: https://quinkennedy.github.io/ciid_2020_mqtt/p5_pubsub/
